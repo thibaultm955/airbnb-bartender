@@ -1,0 +1,2 @@
+class BartendersController < ApplicationController
+end
