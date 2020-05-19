@@ -9,7 +9,8 @@
 user_array = {email: [], password: [], first_name: [], last_name: [], address: []}
 bartender_array = {price_per_day: [], specialty: [], description: []}
 specialties = ["mojito", "beers", "cocktails", "mojito", "sangria", "daikiri", "virgin cocktails"]
-10.times do
+
+5.times do
     user_array[:email] << Faker::Internet.email #=> "eliza@mann.net"
     user_array[:password] << Faker::Internet.password(min_length: 8) 
     user_array[:first_name] << Faker::Name.first_name
@@ -21,7 +22,7 @@ specialties = ["mojito", "beers", "cocktails", "mojito", "sangria", "daikiri", "
 end
 
 i = 0
-while i < 10
+while i < 5
     user = User.create!(email: user_array[:email][i], password: user_array[:password][i], first_name: user_array[:first_name][i], last_name: user_array[:last_name][i], address: user_array[:address][i])
     bartender = Bartender.new(price_per_day: bartender_array[:price_per_day][i], specialty: bartender_array[:specialty][i], description: bartender_array[:description][i])
     bartender.user = user
