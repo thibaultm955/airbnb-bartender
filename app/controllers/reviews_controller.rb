@@ -17,13 +17,12 @@ class ReviewsController < ApplicationController
 
   def create
   	@review = Review.new(review_params)
-  	@user = User.find(params[:user_id])
   	@bartender = Bartender.find(params[:bartender_id])
   	@review.bartender = @bartender
-  	@review.user = @user
+  	@review.user = current_user
 
   	if @review.save
-  	  redirect_to review_path(@review)
+  	  redirect_to bartender_path(@bartender)
   	else
   		render :new
     end
@@ -52,3 +51,4 @@ class ReviewsController < ApplicationController
   	@review = Review.find(params[:id])
   end
 end
+

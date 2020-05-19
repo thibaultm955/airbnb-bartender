@@ -1,7 +1,7 @@
-<%= form_for(review) do |f| %>
-<%= f.label :rating %>
-<%= f.number_field :rating %>
-<%= f.label :comment %>
-<%= f.text_field :comment %>
-<%= f.submit %>
+<h1> Leave a review for  <%= @bartender.user.first_name%> <%= @bartender.user.last_name %> </h1>
+
+<%= simple_form_for [ @bartender, @review ] do |f| %>
+<%= f.input :rating, as: :integer %>
+<%= f.input :comment %>
+<%= f.submit "Submit review" %>
 <% end %>
