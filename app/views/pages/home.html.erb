@@ -1,11 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if user_signed_in?%>
-    <%=current_user%>
-    <% else%>
-    <%= "Not logged in"%>
+<h1>Airbartender</h1>
+<br>
+<br>
+
+
+<ul> Top 10 Bartenders
+    <%@bartenders.each do |bartender|%>
+        <li> <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> </li>
     <%end%>
+</ul>
 
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
 <%= button_to "login", new_user_session_path, method: :new  %>
-<%= button_to "Show all bartenders",  bartenders_url, method: :get%>
+<a href="./bartenders"> See all Bartenders </a>
+<a href="./users/<%=current_user.id%>/bookings"> See all my bookings </a>

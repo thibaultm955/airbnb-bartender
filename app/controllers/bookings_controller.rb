@@ -2,8 +2,8 @@ class BookingsController < ApplicationController
   before_action :find_bartender, only: [:new, :create]
 
   def index
-    @bookings = Booking.where(:bartender_id => params[:bartender_id])
-    @bartender = Bartender.find(params[:bartender_id])
+    @bookings = Booking.where(:user_id => params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def show
@@ -15,11 +15,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-  	@booking = @bartender.bookings.new(booking_params)
+  	@booking = @user.bookings.new(booking_params)
   	@booking.user = current_user
 
   	if @booking.save
-  	  redirect_to bartender_bookings_path(@bartender)
+  	  redirect_to user_bookings_path(@user)
   	else 
   		render :new
     end

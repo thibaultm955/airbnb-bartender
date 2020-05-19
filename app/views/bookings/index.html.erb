@@ -1,4 +1,4 @@
-<h1> Bookings for <%=@bartender.user.first_name%> </h1>
+<h1> Bookings for <%=@user.first_name%> </h1>
 <ul>
     <%@bookings.each do |booking|%>
     <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> </a></li>
