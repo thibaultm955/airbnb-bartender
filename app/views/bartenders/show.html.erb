@@ -6,3 +6,14 @@
 
 <%= button_to "Book it", new_bartender_booking_path(@bartender), method: :get%>
 <%= button_to "Review it", new_bartender_review_path(@bartender), method: :get%>
+
+<hr>
+
+<h2> Reviews for <%= @user.first_name %> <%= @user.last_name %> </h2>
+
+<ul>
+<% @reviews.each do |review| %>
+  <li> <%= review.rating%> - <%=review.comment%> </li>
+<% end %>
+
+</ul>

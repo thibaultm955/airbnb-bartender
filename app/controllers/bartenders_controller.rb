@@ -8,6 +8,7 @@ class BartendersController < ApplicationController
   def show
     @bartender = Bartender.find(params[:id])
     @user = User.find(@bartender.user_id)
+    @reviews = @bartender.reviews
   end
 
   private
