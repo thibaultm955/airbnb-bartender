@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_bartender, only: [:new, :create]
+  before_action :find_bartender, only: [:new, :create, :show]
 
   def index
   	@bookings = Booking.all
