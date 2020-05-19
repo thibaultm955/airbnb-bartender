@@ -1,8 +1,9 @@
 
-<h1> all bookings</h1>
+<h1> all bookings for the bartender </h1>
 
 <% @bookings.each do |booking| %>
   <p><%= booking.start_date %></p>
   <p><%= booking.end_date %></p>
-  <p><%= booking.bartender.user.last_name %></p>
 <% end %>
+
+

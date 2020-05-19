@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :bartenders do
 
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:index, :new, :create, :show]
     resources :reviews, only: [:index, :show, :new, :create]   
 
   end
