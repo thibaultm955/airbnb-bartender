@@ -1,0 +1,7 @@
+<ul>
+    <%@bartenders.each do |bartender|%>
+     <% @user = User.find(bartender.user_id)%>
+    <li> <a href="/bartenders/<%=bartender.id%>"> <%=@user.first_name%> <%=@user.last_name%> </a> - <%=bartender.price_per_day%> € </li>
+    <%end%>
+    </ul>
+
