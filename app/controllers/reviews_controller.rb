@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :destroy]
 
   def index
-  	@reviews = Review.all
+    @reviews = Review.where(params[:bartender_id])
   end
 
+
   def show
+
   end
 
   def new
@@ -22,18 +24,18 @@ class ReviewsController < ApplicationController
 
   	if @review.save
   	  redirect_to review_path(@review)
-  	else 
+  	else
   		render :new
     end
   end
 
-  def edit
-  end
+#  def edit
+#  end
 
-  def update
-  	@review.update(review_params)
-  	redirect_to review_path(@review)
-  end
+#  def update
+#  	@review.update(review_params)
+#  	redirect_to review_path(@review)
+#  end
 
   def destroy
   	@review.destroy
