@@ -1,0 +1,8 @@
+<ul>
+    <li> <%= @user.first_name %></li>
+    <li> <%= @user.last_name%> </li>
+    <li> <%= @bartender.price_per_day%></li>
+    </ul>
+
+<%= button_to "Book it", new_bartender_booking_path(@bartender), method: :get%>
+<%= button_to "Review it", new_bartender_review_path(@bartender), method: :get%>
