@@ -9,9 +9,15 @@
     <%end%>
 </ul>
 
+<%# 
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<%# 
 <%= button_to "login", new_user_session_path, method: :new  %>
+
+
+<p> To be Fixed <a href="<%=destroy_user_session_path%>"> Log Out </a> <br> </p>
+<a href="<%=new_user_session_path%>"> Log in </a> <br>
 <a href="./bartenders"> See all Bartenders </a>
 <%if user_signed_in?%>
-    <a href="./users/<%=current_user%>/bookings"> See all my bookings </a>
+    <a href="./users/<%=current_user.id%>/bookings"> See all my bookings </a>
 <%end%>
