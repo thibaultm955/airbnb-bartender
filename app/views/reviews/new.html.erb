@@ -1,7 +1,7 @@
 <h1> Leave a review for  <%= @bartender.user.first_name%> <%= @bartender.user.last_name %> </h1>
 
 <%= simple_form_for [ @bartender, @review ] do |f| %>
-<%= f.input :rating, as: :integer %>
+<%= f.input :rating, collection: 0..5 %>
 <%= f.input :comment %>
 <%= f.submit "Submit review" %>
 <% end %>

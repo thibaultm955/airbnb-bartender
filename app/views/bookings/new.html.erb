@@ -1,11 +1,15 @@
+<%if user_signed_in?%>
+  <h1> enter your date to book your bartender : </h1>
+  <h2 style="color:red"> <%= @incorrect == nil ? "" : "Those dates are already used, please use new one"%> </h2>
+  <p>
+    <%= @bartender.user.last_name %>
+  </p>
 
-<h1> enter your date to book your bartender : </h1>
-<p>
-	<%= @bartender.user.last_name %>
-</p>
-
-<%= simple_form_for [@bartender, @booking] do|f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.submit%>
+  <%= simple_form_for [@bartender, @booking] do|f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit%>
+  <%end%>
+  <%else%>
+  <h1> Please log in to to create a booking</h1>
 <%end%>
