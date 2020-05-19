@@ -1,5 +1,6 @@
 <%if user_signed_in?%>
   <h1> enter your date to book your bartender : </h1>
+  <h2 style="color:red"> <%= @incorrect == nil ? "" : "Those dates are already used, please use new one"%> </h2>
   <p>
     <%= @bartender.user.last_name %>
   </p>
