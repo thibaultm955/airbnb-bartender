@@ -9,11 +9,16 @@ class BookingsController < ApplicationController
   end
 
   def new
+  	@bartender = Bartender.find(params[:bartender_id])
   	@booking = Booking.new
   end
 
   def create
   	@booking = Booking.new(booking_params)
+  	@user = User.find(params[:user_id])
+  	@bartender = Bartender.find(params[:bartender_id])
+  	@booking.bartender = @bartender
+  	@booking.user = @user
 
   	if @booking.save
   	  redirect_to booking_path(@booking)
