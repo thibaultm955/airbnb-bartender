@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
   def create
   	@booking = @bartender.bookings.new(booking_params)
   	@booking.user = current_user
-
   	if @booking.save
   	  redirect_to user_bookings_path(current_user)
   	else 
@@ -29,9 +28,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.delete
     redirect_to user_bookings_path(current_user)
-end
-
-
+  end
 
   private
 
