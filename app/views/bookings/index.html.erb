@@ -1,6 +1,6 @@
 <h1> Bookings for <%=@user.first_name%> </h1>
 <ul>
     <%@bookings.each do |booking|%>
-    <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> </a></li>
+    <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> for bartender <%=booking.bartender.user.first_name%> </a></li>
     <%end%>
 </ul>
