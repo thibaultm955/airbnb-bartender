@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-  	@@bartender = Bartender.find(params[:bartender_id])
+  	@bartender = Bartender.find(params[:bartender_id])
   	@review = Review.new
   end
 
