@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
-
+User.destroy_all
+Bartender.destroy_all
 bartender_image_array = []
 
 bartender_image_array << bartender1 = URI.open('https://res.cloudinary.com/dqwejtyhm/image/upload/v1589953299/Bartender_1_xxvq13.jpg')

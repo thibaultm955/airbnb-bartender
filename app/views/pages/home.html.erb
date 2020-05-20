@@ -19,15 +19,17 @@
     <%@bartenders.each do |bartender|%>
 
     <div class="card-trip">
-        <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
-            <p> <%= bartender.description %> </p>
-          </div>
-          <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
-          <p class="card-trip-rating" >★ 4,5 </p>
-        </div>
+        <%if bartender.photo.attached? %>
+            <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
+        <%end%>
+            <div class="card-trip-infos">
+            <div>
+                <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
+                <p> <%= bartender.description %> </p>
+            </div>
+            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
+            <p class="card-trip-rating" >★ 4,5 </p>
+            </div>
 
     </div>
   <%end%>
