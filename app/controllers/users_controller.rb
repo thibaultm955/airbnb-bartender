@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@users= User.all
+    @users= User.all
     @users = User.geocoded # returns users with coordinates
 
     @markers = @users.map do |user|
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         lng: user.longitude
       }
     end
+
   end
 
   def edit

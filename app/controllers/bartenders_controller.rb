@@ -5,12 +5,13 @@ class BartendersController < ApplicationController
     @users = User.all
     #@users = User.geocoded
 
-    #@markers = @bartenders.map do |bart|
+    #@markers = @users.map do |bart|
       #{
-       # lat: bart.user.latitude,
-       # lgn: bart.user.longitude
+        #lat: bart.user.latitude,
+        #lgn: bart.user.longitude
       #}
     #end
+    raise
   end
 
   def show
@@ -22,14 +23,12 @@ class BartendersController < ApplicationController
     @reviews.each{ |review| sum_rating += review.rating }
     @reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length
 
-    
+  
     @markers = 
       [{
         lat: @user.latitude,
         lgn: @user.longitude
       }]
-    raise
-
 
   end
 

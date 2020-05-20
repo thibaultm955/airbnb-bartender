@@ -15,7 +15,7 @@ specialties = ["mojito", "beers", "cocktails", "mojito", "sangria", "daikiri", "
     user_array[:password] << Faker::Internet.password(min_length: 8) 
     user_array[:first_name] << Faker::Name.first_name
     user_array[:last_name] << Faker::Name.last_name
-    user_array[:address] << Faker::Address.full_address #=> "282 Kevin Brook, Imogeneborough, CA 58517"
+    user_array[:address] << "Faker::Address.full_address #=> "282 Kevin Brook, Imogeneborough, CA 58517""
     bartender_array[:price_per_day] << Faker::Number.decimal(l_digits: 2) #=> 11.88
     bartender_array[:specialty] << [specialties.sample]
     bartender_array[:description] << Faker::Lorem.paragraph_by_chars #=> "Truffaut stumptown trust fund 8-bit messenger bag portland. Meh kombucha selvage swag biodiesel. Lomo kinfolk jean shorts asymmetrical diy. Wayfarers portland twee stumptown. Wes anderson biodiesel retro 90's pabst. Diy echo 90's mixtape semiotics. Cornho."
