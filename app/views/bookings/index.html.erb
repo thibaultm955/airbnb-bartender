@@ -1,5 +1,6 @@
-<h1> Bookings for <%=@user.first_name%> </h1>
-<ul>
+<div class="container">
+<h1> My Bookings </h1>
+<!-- <ul>
     <%@bookings.each do |booking|%>
     <%if params[:bartender_id] == nil%> 
         <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> for bartender <%=booking.bartender.user.first_name%> </a><%= button_to "Delete", { action: "destroy", id: booking.id }, method: :delete, data: { confirm: "Are you sure?" }  %>  </li>
@@ -8,3 +9,35 @@
     <%end%>
     <%end%>
 </ul>
+
+-->
+
+
+
+
+<div class="row">
+  <table class="table table-bordered">
+    <tbody>
+      <thead>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Bartender</th>
+        <th>Action</th>
+      </thead>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= booking.bartender.user.first_name%> <%=booking.bartender.user.last_name%></td>
+          <td><%= link_to user_bookings_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash destroy_dose"></i>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "Back" , root_path, class: "btn btn-dark" %>
+
+

@@ -1,9 +1,35 @@
 
 
-<ul>
+<!-- <ul>
     <%@bartenders.each do |bartender|%>
      <% @user = User.find(bartender.user_id)%>
     <li> <a href="/bartenders/<%=bartender.id%>"> <%=@user.first_name%> <%=@user.last_name%> </a> - <%=bartender.price_per_day%> € </li>
     <%end%>
-    </ul>
+    </ul>  -->
 
+<div class="container">
+<h1 class="text-center">Browse through our bartenders</h1>
+<br>
+
+  <div class="cards">
+    <%@bartenders.each do |bartender|%>
+
+    <div class="card-trip">
+        <%if bartender.photo.attached? %>
+            <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
+        <%end%>
+            <div class="card-trip-infos">
+            <div>
+                <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
+                <p> <%= bartender.description %> </p>
+            </div>
+            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
+            <p class="card-trip-rating" >★ 4,5 </p>
+            </div>
+
+    </div>
+  <%end%>
+
+  </div>
+
+</div>
