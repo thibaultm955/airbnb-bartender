@@ -6,7 +6,7 @@
     <li><%= specialty%> </li>
     <%end%>
     </ul>
-
+<%= cl_image_tag @bartender.photo.key, height: 300, width: 400, crop: :fill %>
 <%= button_to "Book it", new_bartender_booking_path(@bartender), method: :get%>
 <%= button_to "Review it", new_bartender_review_path(@bartender), method: :get%>
 
