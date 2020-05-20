@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
@@ -66,3 +66,5 @@ gem 'devise'
 gem 'faker'
 
 gem 'date'
+
+gem 'cloudinary', '~> 1.12.0'
