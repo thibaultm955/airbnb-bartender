@@ -5,7 +5,6 @@ class PagesController < ApplicationController
     bartenders_array.each_with_index do |bartender, index|
       if index < 6
         @bartenders << bartender
-      else
       end
     end
   end

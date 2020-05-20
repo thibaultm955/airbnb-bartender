@@ -3,7 +3,7 @@
 <!-- <ul>
     <%@bookings.each do |booking|%>
     <%if params[:bartender_id] == nil%> 
-        <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> for bartender <%=booking.bartender.user.first_name%> </a><%= button_to "Delete", { action: "destroy", id: booking.id }, method: :delete, data: { confirm: "Are you sure?" }  %>  </li>
+        <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> for bartender <%=booking.bartender.user.first_name%> </a><%= button_to "Delete", { action: "destroy", id: booking.id }, method: :delete, data: { confirm: "Are you sure?" }  %> </li>
     <%else%>
         <li> <a href="./bookings/<%=booking.id%>"><%=booking.start_date%> - <%= booking.end_date%> by <%=booking.user.first_name%> for bartender <%=booking.bartender.user.first_name%> </a> </li>
     <%end%>
