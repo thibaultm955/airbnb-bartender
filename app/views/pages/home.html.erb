@@ -17,7 +17,10 @@
 
   <div class="cards">
     <%@bartenders.each do |bartender|%>
-
+                 <%@reviews = bartender.reviews%>
+               <%sum_rating = 0.00%>
+               <%@reviews.each{ |review| sum_rating += review.rating }%>
+               <%@reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length%>
     <div class="card-trip">
         <%if bartender.photo.attached? %>
             <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
@@ -27,8 +30,8 @@
                 <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
                 <p> <%= bartender.description %> </p>
             </div>
-            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
-            <p class="card-trip-rating" >★ 4,5 </p>
+            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %> €</h2>
+            <p class="card-trip-rating" >★ <%=@average_rating%> </p>
             </div>
 
     </div>
