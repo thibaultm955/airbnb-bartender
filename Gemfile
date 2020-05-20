@@ -66,3 +66,5 @@ gem 'devise'
 gem 'faker'
 
 gem 'date'
+
+gem 'pundit'
