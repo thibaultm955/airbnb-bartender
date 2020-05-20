@@ -21,6 +21,7 @@ class BartendersController < ApplicationController
   end
 
   def create
+    zertyuio
   	@bartender = Bartender.new(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:price_per_day])
     @user = User.find(params[:user_id])
   	@bartender.user = @user
