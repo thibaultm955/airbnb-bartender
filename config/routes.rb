@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do 
+    resources :bartenders
     resources :bookings
   end
 
   resources :bartenders do
-
     resources :bookings, only: [:index, :show, :new, :create, :show]
     resources :reviews, only: [:index, :show, :new, :create]   
 

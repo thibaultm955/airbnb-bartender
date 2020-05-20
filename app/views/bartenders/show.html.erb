@@ -2,6 +2,9 @@
     <li> <%= @user.first_name %></li>
     <li> <%= @user.last_name%> </li>
     <li> <%= @bartender.price_per_day%></li>
+    <% @bartender.specialty.each do |specialty|%>
+    <li><%= specialty%> </li>
+    <%end%>
     </ul>
 
 <%= button_to "Book it", new_bartender_booking_path(@bartender), method: :get%>
