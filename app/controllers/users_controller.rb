@@ -4,13 +4,14 @@ class UsersController < ApplicationController
 
   def index
     #@users= User.all
-    #@users = User.geocoded # returns flats with coordinates
+    @users = User.geocoded # returns users with coordinates
 
-    #@markers = @users.map do |user|
-      #{
-      #  lat: user.latitude,
-      #  lng: user.longitude
-      #}
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def edit
