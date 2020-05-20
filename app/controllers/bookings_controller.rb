@@ -36,7 +36,6 @@ class BookingsController < ApplicationController
         return
       end
     end
-
     @booking = @bartender.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
@@ -44,8 +43,10 @@ class BookingsController < ApplicationController
     else 
       render :new
     end
+  end
 
-
+  def edit
+    @booking = Booking.find(params[:id])
   end
 
   def destroy
