@@ -8,5 +8,13 @@ class PagesController < ApplicationController
       else
       end
     end
+    @users = User.all
+    @users = User.geocoded
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 end

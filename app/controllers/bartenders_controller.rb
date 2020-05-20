@@ -3,13 +3,14 @@ class BartendersController < ApplicationController
   def index
     @bartenders = Bartender.all
     @users = User.all
-    @users = User.geocoded # returns users with coordinates
 
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
+    #@users = User.geocoded # returns users with coordinates
+
+    #@markers = @users.map do |user|
+    #  {
+    #    lat: user.latitude,
+     #   lng: user.longitude
+     # }
   end
 
   def show
