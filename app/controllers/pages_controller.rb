@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     bartenders_array = Bartender.all
     @bartenders = []
     bartenders_array.each_with_index do |bartender, index|
-      if index < 10
+      if index < 6
         @bartenders << bartender
       end
     end

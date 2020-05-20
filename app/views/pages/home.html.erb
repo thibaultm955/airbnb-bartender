@@ -13,7 +13,7 @@
 
   <br>
 
-  <h2 class="text-center"> Top 10 Bartenders </h2>
+  <h2 class="text-center"> Featured bartenders </h2>
 
   <div class="cards">
     <%@bartenders.each do |bartender|%>
@@ -41,20 +41,14 @@
 
   <br>
   <br>
-  
+
   <a href="./bartenders"> See all Bartenders </a>
   <%if user_signed_in?%>
-      <a href="./users/<%=current_user.id%>/bookings"> See all my bookings </a>
       <%if Bartender.where(:user_id => current_user.id) != []%>
-        <a href="./bartenders/<%=Bartender.where(:user_id => current_user.id)[0].id%>/bookings">See all the booking for me </a>
       <%else%>
         <%= button_to "I want to be a Bartender !", new_user_bartender_path(current_user.id), method: :get%>
       <%end%>
   <%end%>
-
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-<%= button_to "login", new_user_session_path, method: :new%>
-
 
 </div>
 
