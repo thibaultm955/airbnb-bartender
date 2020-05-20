@@ -10,11 +10,14 @@ class PagesController < ApplicationController
     end
     @users = User.all
     @users = User.geocoded
-    @markers = @users.map do |user|
+
+    @markers = @bartenders.map do |bart|
       {
-        lat: user.latitude,
-        lng: user.longitude
+        lat: bart.user.latitude,
+        lgn: bart.user.longitude
       }
     end
+
+
   end
 end
