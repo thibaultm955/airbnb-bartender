@@ -1,5 +1,5 @@
 class BartendersController < ApplicationController
-
+  require "open-uri"
   def index
     @bartenders = Bartender.all
     @users = User.all
@@ -21,10 +21,13 @@ class BartendersController < ApplicationController
   end
 
   def create
-    zertyuio
+    upload_picture = Cloudinary::Uploader.upload(params[:bartender][:photo].tempfile.path)
+    picture_url = upload_picture["url"]
+    picture = URI.open(picture_url)
   	@bartender = Bartender.new(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:price_per_day])
     @user = User.find(params[:user_id])
-  	@bartender.user = @user
+    @bartender.user = @user
+    @bartender.photo.attach(io: picture, filename: "bartender_#{@bartender.user_id}.png", content_type: "image/png")
   	if @bartender.save
   	  redirect_to bartender_path(@bartender)
   	else
