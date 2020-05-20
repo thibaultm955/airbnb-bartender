@@ -67,4 +67,8 @@ gem 'faker'
 
 gem 'date'
 
+
 gem 'cloudinary', '~> 1.12.0'
+
+gem 'pundit'
+

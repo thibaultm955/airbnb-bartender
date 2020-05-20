@@ -17,6 +17,7 @@
 
   <div class="cards">
     <%@bartenders.each do |bartender|%>
+
     <div class="card-trip">
         <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
@@ -37,16 +38,19 @@
   <br>
 
 
+
   <%= button_to "logout", destroy_user_session_path, method: :delete  %>
   <%#
   <%= button_to "login", new_user_session_path, method: :new  %>
 
-
-  <p> To be Fixed <a href="<%=destroy_user_session_path%>"> Log Out </a> <br> </p>
-  <a href="<%=new_user_session_path%>"> Log in </a> <br>
+  
   <a href="./bartenders"> See all Bartenders </a>
   <%if user_signed_in?%>
       <a href="./users/<%=current_user.id%>/bookings"> See all my bookings </a>
   <%end%>
 
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<%= button_to "login", new_user_session_path, method: :new%>
+
 </div>
+
