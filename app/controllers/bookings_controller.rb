@@ -2,8 +2,13 @@ class BookingsController < ApplicationController
   before_action :find_bartender, only: [:new, :create]
 
   def index
-    @bookings = Booking.where(:user_id => params[:user_id])
-    @user = User.find(params[:user_id])
+    if params[:user_id] == nil
+      @bookings = Booking.where(:bartender_id => params[:bartender_id])
+      @user = Bartender.find(params[:bartender_id]).user
+    else
+      @bookings = Booking.where(:user_id => params[:user_id])
+      @user = User.find(params[:user_id])
+    end
   end
 
   def show

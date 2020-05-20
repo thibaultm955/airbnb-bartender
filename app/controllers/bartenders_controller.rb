@@ -15,6 +15,26 @@ class BartendersController < ApplicationController
     
   end
 
+  def new
+    @bartender = Bartender.new
+    @user = User.find(params[:user_id])
+  end
+
+  def create
+  	@bartender = Bartender.new(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:price_per_day])
+    @user = User.find(params[:user_id])
+  	@bartender.user = @user
+  	if @bartender.save
+  	  redirect_to bartender_path(@bartender)
+  	else
+  		render :new
+    end
+  end
+
   private
+
+  def bartender_params
+  
+  end
 
 end
