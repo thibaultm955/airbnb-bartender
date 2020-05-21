@@ -2,6 +2,7 @@ class BartendersController < ApplicationController
   require "open-uri"
   def index
 
+
     @bartenders = Bartender.all
     @users = User.all
     @users = User.geocoded
@@ -20,7 +21,6 @@ class BartendersController < ApplicationController
         image_url: helpers.asset_url('cocktail.png')
       }
     end
-
 
     if params[:query].present?
       @bartenders = []
@@ -73,7 +73,7 @@ class BartendersController < ApplicationController
     upload_picture = Cloudinary::Uploader.upload(params[:bartender][:photo].tempfile.path)
     picture_url = upload_picture["url"]
     picture = URI.open(picture_url)
-  	@bartender = Bartender.new(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:price_per_day])
+  	@bartender = Bartender.new(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:description])
     @user = User.find(params[:user_id])
     @bartender.user = @user
     @bartender.photo.attach(io: picture, filename: "bartender_#{@bartender.user_id}.png", content_type: "image/png")
