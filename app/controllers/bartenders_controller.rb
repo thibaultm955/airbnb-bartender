@@ -78,16 +78,11 @@ class BartendersController < ApplicationController
 
   def update
     @user = @bartender.user
-    @bartender.update(bartender_params)
+    @bartender.update(:price_per_day => params[:bartender][:price_per_day], :specialty => params[:specialty][0].split, :description => params[:bartender][:description])
     redirect_to user_path(@user)
   end
 
   private
-
-
-  def bartender_params
-    params.require(:bartender).permit(:price_per_day, :specialty, :description)
-  end
 
   def set_bartender
     @bartender = Bartender.find(params[:id])
