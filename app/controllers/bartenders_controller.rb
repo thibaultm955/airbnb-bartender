@@ -1,5 +1,7 @@
 class BartendersController < ApplicationController
   require "open-uri"
+
+  before_action :set_bartender, only: [ :edit, :update]
   def index
     if params[:query].present?
       @bartenders = []
@@ -71,11 +73,24 @@ class BartendersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = @bartender.user
+    @bartender.update(bartender_params)
+    redirect_to user_path(@user)
+  end
+
   private
 
 
   def bartender_params
-  
+    params.require(:bartender).permit(:price_per_day, :specialty, :description)
+  end
+
+  def set_bartender
+    @bartender = Bartender.find(params[:id])
   end
 
 end
