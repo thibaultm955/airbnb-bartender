@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -10,7 +10,7 @@
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
 }
 
@@ -33,6 +33,16 @@
   margin-left: 8px;
 }
 
+#specialty {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#price {
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
 }
@@ -44,5 +54,4 @@
 .card-container {
   display: flex;
   width: 100%;
-
 }
