@@ -24,4 +24,7 @@
 
     <p><%= @bartender.price_per_day %></p>
     <%= link_to "edit my bartender's account", edit_bartender_path(@bartender) %>
+    <%= link_to bartender_path(@bartender), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash destroy_dose"></i>
+    <% end %>
 <% end  %>
