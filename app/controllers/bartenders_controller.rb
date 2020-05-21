@@ -2,8 +2,14 @@ class BartendersController < ApplicationController
   require "open-uri"
   def index
     if params[:query].present?
+      rtyuio
+      sql_query = " \
+        first_name @@ :query \
+        OR last_name @@ :query \
+        OR address @@ :query\
+      "
       @bartenders = []
-      sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
+      # sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
       @users = User.where(sql_query, query: "%#{params[:query]}%")
       @users = @users.geocoded
       @bartenders_users = []

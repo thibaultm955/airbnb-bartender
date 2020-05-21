@@ -11,6 +11,11 @@
       class: "form-control",
       placeholder: "Find Bartenders"
     %>
+    <%= text_field_tag :query2,
+      params[:query2],
+      class: "form-control",
+      placeholder: "Address"
+    %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
   </div>
