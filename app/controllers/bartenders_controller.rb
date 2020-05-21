@@ -62,9 +62,9 @@ class BartendersController < ApplicationController
 
   def search_bartenders(query1, query2 = "")
     sql_query = " \
-    first_name @@ :query \
-    OR last_name @@ :query \
-    AND address @@ :query2\
+    first_name ILIKE :query \
+    OR last_name ILIKE :query \
+    AND address ILIKE :query2\
   "
     @bartenders = []
     # sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
@@ -79,9 +79,9 @@ class BartendersController < ApplicationController
 
   def search_query(query1, query2 = "")
     sql_query = " \
-    first_name @@ :query \
-    OR last_name @@ :query \
-    AND address @@ :query2\
+    first_name ILIKE :query \
+    OR last_name ILIKE :query \
+    AND address ILIKE :query2\
   "
     @bartenders = []
     # sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
