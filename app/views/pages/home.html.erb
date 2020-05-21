@@ -4,37 +4,49 @@
 <h1 class="text-center">Airbnb Bartender</h1>
 <br>
 
-  <div>
+<h2 class="text-center mb-5"> Bring the summer into your home 🍹  </h2>
+
+<div class="d-inline-flex mb-5">
+
+  <div class="mr-3">
   <%= form_tag bartenders_path, method: :get do %>
+  <%=label_tag :query, "Name"%>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Find Bartenders"
+      class: "form-control"
     %>
+  </div>
+  <div class="mr-3">
+<%=label_tag :query2, "Location"%>
     <%= text_field_tag :query2,
       params[:query2],
-      class: "form-control",
-      placeholder: "Address"
+      class: "form-control"
     %>
+  </div>
+  <div class="mr-3">
     <%=label_tag :query3, "Start Date"%>
      <%= date_field_tag :query3,
       params[:query3],
-      class: "form-control",
-      placeholder: "Start Date"
+      class: "form-control"
     %>
+  </div>
+  <div class="mr-5">
     <%=label_tag :query4, "End Date"%>
      <%= date_field_tag :query4,
       params[:query4],
-      class: "form-control",
-      placeholder: "Start Date"
+      class: "form-control"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
   </div>
+  <div class="ml-5 mt-4">
+    <%= submit_tag "Search", class: "btn-red mt-2" %>
+  </div>
+  <% end %>
+
+</div>
 
   <br>
 
-  <h2 class="text-center"> Featured bartenders </h2>
+  <h2 class="text-center mb-3"> Featured bartenders </h2>
 
   <div class="cards">
     <%@bartenders.each do |bartender|%>
@@ -63,7 +75,8 @@
   <br>
   <br>
 
-  <a href="./bartenders"> See all Bartenders </a>
+
+  <a class="text-center" href="./bartenders" > See all Bartenders </a>
   <%if user_signed_in?%>
       <%if Bartender.where(:user_id => current_user.id) != []%>
       <%else%>
