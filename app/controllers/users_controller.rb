@@ -6,12 +6,12 @@ class UsersController < ApplicationController
     @users= User.all
     @users = User.geocoded # returns users with coordinates
 
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-      }
-    end
+    #@markers = @users.map do |user|
+      #{
+       # lat: user.latitude,
+       # lng: user.longitude,
+      #}
+    #end
 
   end
 
