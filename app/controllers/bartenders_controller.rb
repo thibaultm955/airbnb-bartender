@@ -19,6 +19,7 @@ class BartendersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url('cocktail.png')
       }
+    end
 
 
     if params[:query].present?
@@ -31,16 +32,22 @@ class BartendersController < ApplicationController
     else
       @bartenders = Bartender.all
       @users = User.all
+      @users = User.geocoded
 
-      @markers = @users.map do |user|
+      @bartenders_users = []
+
+      @bartenders.each do |bartender|
+        @bartenders_users << bartender.user 
+      end
+
+      @markers = @bartenders_users.map do |user|
         {
           lat: user.latitude,
           lng: user.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-          #image_url: helpers.asset_url('/images/cocktail2.jpeg')
+          image_url: helpers.asset_url('cocktail.png')
         }
       end
-
     end
 
   end
