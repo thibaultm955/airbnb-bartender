@@ -28,6 +28,17 @@
   	redirect_to users_path
   end
 
+  def show
+    @bartenders = Bartender.all
+    @bartenders.each do |b|
+      if b.user_id == current_user.id
+        @bartender = b
+      else
+        @bartender = "you're not a bartender"
+      end
+    end  
+  end
+
   private
 
   def user_params

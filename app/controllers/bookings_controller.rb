@@ -29,7 +29,8 @@ class BookingsController < ApplicationController
       b_start_date = booking.start_date
       b_end_date = booking.end_date
       range = b_start_date..b_end_date
-      if (range === start_date) || (range === end_date)
+      range_booking = start_date..end_date
+      if (range === start_date) || (range === end_date) || (range_booking === range)
         @booking = Booking.new
         @incorrect = "yes"
         render :new

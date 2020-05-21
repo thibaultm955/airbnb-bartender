@@ -27,7 +27,9 @@
         <li class="nav-item dropdown">
           <%= image_tag "Profile_pic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+           <%= link_to "My account", user_path(current_user) ,class: "dropdown-item"%>
            <%= link_to "My bookings", user_bookings_path(current_user), class: "dropdown-item" %>
+
             <%if Bartender.where(:user_id => current_user.id) != []%>
               <%= link_to "My reservations", bartender_bookings_path(current_user), class: "dropdown-item" %>
             <%end%>

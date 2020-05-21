@@ -1,0 +1,28 @@
+<h2> My account</h2>
+
+<%= @user.last_name%>
+<%= @user.first_name %>
+
+<%= @user.address %>
+<%= @user.email%>
+
+<%= link_to "edit my account", edit_user_path(current_user) %>
+
+<!--- <%= link_to "change my logs : mail & password", edit_user_registration_path(current_user) ,class: "dropdown-item"%> --->
+
+
+
+<% if current_user == @bartender.user %>
+    <h2> My bartender's account</h2>
+    <p><%= @bartender.description %></p>
+
+    <% @bartender.specialty.each do |specialty| %>
+      <p> <strong> <%= specialty %> </strong> &nbsp; </p>
+    <% end %>
+
+    <p><%= @bartender.price_per_day %></p>
+    <%= link_to "edit my bartender's account", edit_bartender_path(@bartender) %>
+
+<% else %>
+     <%= "you're not still a bartender"%>
+<% end  %>

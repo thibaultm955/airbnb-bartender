@@ -1,9 +1,10 @@
-<h1> Create a new Bartender </h1>
+<h1> i'm a bartender and i update my account</h1>
 
 <%= form_for [@user, @bartender] do |f|%>
   <%= f.label(:price_per_day, "Price per day") %>
   <%= f.number_field(:price_per_day,in: 1.0..200.0, step: 0.5) %> <br>
   <%= f.label(:specialty, "specialty")%>
+  <!--- <%= f.text_field :specialty, as: :array %> --->
   <input type="textbox" name="specialty[]"><br>
   <%= f.label(:description, "Description")%>
   <%= f.text_field :description %><br>
