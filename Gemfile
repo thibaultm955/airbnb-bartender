@@ -74,3 +74,8 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 
 gem 'pg_search'
+
+gem 'blazer'
+
+gem 'rails_admin', '~> 2.0'
+

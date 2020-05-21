@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
   devise_for :users
   root to: 'pages#home'
 
@@ -12,5 +16,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :new, :create]   
 
   end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

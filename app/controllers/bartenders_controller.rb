@@ -27,10 +27,12 @@ class BartendersController < ApplicationController
       search_query_date(params[:query3], "", bartenders)
 
     elsif params[:query3].present?
-      search_query_date(params[:query3])
+      bartenders = Bartender.all
+      search_query_date(params[:query3], bartenders)
 
     elsif params[:query4].present?
-      search_query_date("", params[:query4])
+      bartenders = Bartender.all
+      search_query_date("", params[:query4], bartenders)
 
     elsif  params[:query].present?
       search_query(params[:query])
@@ -60,9 +62,9 @@ class BartendersController < ApplicationController
 
   def search_bartenders(query1, query2 = "")
     sql_query = " \
-    first_name @@ :query \
-    OR last_name @@ :query \
-    OR address @@ :query2\
+    first_name ILIKE :query \
+    OR last_name ILIKE  :query \
+    AND address ILIKE  :query2\
   "
     @bartenders = []
     # sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
@@ -77,9 +79,9 @@ class BartendersController < ApplicationController
 
   def search_query(query1, query2 = "")
     sql_query = " \
-    first_name @@ :query \
-    OR last_name @@ :query \
-    OR address @@ :query2\
+    first_name ILIKE :query \
+    OR last_name ILIKE  :query \
+    AND address ILIKE  :query2\
   "
     @bartenders = []
     # sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
