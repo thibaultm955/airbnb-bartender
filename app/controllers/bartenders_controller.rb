@@ -3,7 +3,6 @@ class BartendersController < ApplicationController
   def index
     @bartenders = Bartender.all
     @users = User.all
-    #@users = User.geocoded
 
   end
 
