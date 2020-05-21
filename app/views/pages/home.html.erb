@@ -5,10 +5,14 @@
 <br>
 
   <div>
-    <input type="text" placeholder="Location">
-    <input type="date" placeholder="Start date">
-    <input type="date" placeholder="End date">
-    <button> Search </button>
+  <%= form_tag bartenders_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find Bartenders"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   </div>
 
   <br>
