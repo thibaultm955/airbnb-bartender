@@ -16,6 +16,18 @@
       class: "form-control",
       placeholder: "Address"
     %>
+    <%=label_tag :query3, "Start Date"%>
+     <%= date_field_tag :query3,
+      params[:query3],
+      class: "form-control",
+      placeholder: "Start Date"
+    %>
+    <%=label_tag :query4, "End Date"%>
+     <%= date_field_tag :query4,
+      params[:query4],
+      class: "form-control",
+      placeholder: "Start Date"
+    %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
   </div>
