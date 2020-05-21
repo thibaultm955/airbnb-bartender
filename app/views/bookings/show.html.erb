@@ -1,2 +1,6 @@
 <p> start date <%=@booking.start_date%></p>
 <p> <%=@booking.user.first_name%></p>
+
+
+
+<%= link_to 'change your booking', edit_user_booking_path(@booking.user) %>
