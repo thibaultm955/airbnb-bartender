@@ -1,0 +1,12 @@
+<h1> Create a new Bartender </h1>
+
+<%= form_for [@user, @bartender] do |f|%>
+  <%= f.label(:price_per_day, "Price per day") %>
+  <%= f.number_field :price_per_day%> <br>
+  <%= f.label(:specialty, "specialty")%>
+  <input type="textbox" name="specialty[]"><br>
+  <%= f.label(:description, "Description")%>
+  <%= f.text_field :description %><br>
+  <%= f.file_field :photo %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

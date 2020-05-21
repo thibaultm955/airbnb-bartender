@@ -1,23 +1,55 @@
-<h1>Airbartender</h1>
-<br>
+
+<div class="container">
+
+<h1 class="text-center">Airbnb Bartender</h1>
 <br>
 
+  <div>
+    <input type="text" placeholder="Location">
+    <input type="date" placeholder="Start date">
+    <input type="date" placeholder="End date">
+    <button> Search </button>
+  </div>
 
-<ul> Top 10 Bartenders
+  <br>
+
+  <h2 class="text-center"> Featured bartenders </h2>
+
+  <div class="cards">
     <%@bartenders.each do |bartender|%>
-        <li> <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> </li>
-    <%end%>
-</ul>
+    <%@reviews = bartender.reviews%>
+    <%sum_rating = 0.00%>
+    <%@reviews.each{ |review| sum_rating += review.rating }%>
+    <%@reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length%>
+    <div class="card-trip">
+        <%if bartender.photo.attached? %>
+            <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
+        <%end%>
+            <div class="card-trip-infos">
+            <div>
+                <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
+                <p> <%= bartender.description %> </p>
+            </div>
+            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %> €</h2>
+            <p class="card-trip-rating" >★ <%=@average_rating%> </p>
+            </div>
+
+    </div>
+  <%end%>
+
+  </div>
+
+  <br>
+  <br>
+
+  <a href="./bartenders"> See all Bartenders </a>
+  <%if user_signed_in?%>
+      <%if Bartender.where(:user_id => current_user.id) != []%>
+      <%else%>
+        <%= button_to "I want to be a Bartender !", new_user_bartender_path(current_user.id), method: :get%>
+      <%end%>
+  <%end%>
+
+</div>
 
 
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-<%# 
-<%= button_to "login", new_user_session_path, method: :new  %>
-
-
-<p> To be Fixed <a href="<%=destroy_user_session_path%>"> Log Out </a> <br> </p>
-<a href="<%=new_user_session_path%>"> Log in </a> <br>
-<a href="./bartenders"> See all Bartenders </a>
-<%if user_signed_in?%>
-    <a href="./users/<%=current_user.id%>/bookings"> See all my bookings </a>
-<%end%>
