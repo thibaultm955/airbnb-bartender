@@ -23,15 +23,11 @@ const initMapbox = () => {
 	      .setLngLat([ marker.lng, marker.lat ])
 	      .addTo(map);
     });
-	fitMapToMarkers(map, markers)
+
+	  fitMapToMarkers(map, markers)
   }
 };
 
 export { initMapbox };
-JavaScript (2)
+//JavaScript (2)
 // app/javascript/packs/application.js
-import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})

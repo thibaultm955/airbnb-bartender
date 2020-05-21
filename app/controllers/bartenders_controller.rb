@@ -5,13 +5,6 @@ class BartendersController < ApplicationController
     @users = User.all
     #@users = User.geocoded
 
-    #@markers = @users.map do |bart|
-      #{
-        #lat: bart.user.latitude,
-        #lgn: bart.user.longitude
-      #}
-    #end
-    raise
   end
 
   def show
