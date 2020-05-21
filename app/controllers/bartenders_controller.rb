@@ -189,6 +189,13 @@ class BartendersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def destroy
+    @bartender = Bartender.find(params[:id])
+    @bartender.delete
+    redirect_to user_path(current_user)
+    
+  end
+
   private
 
   def set_bartender
