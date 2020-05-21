@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :destroy]
+  before_action :authenticate_user!
 
   def index
     @reviews = Review.where(params[:bartender_id])
