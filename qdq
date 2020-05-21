@@ -1,0 +1,90 @@
+=> [[32m#<Bartender:0x000055dc05758460[0m
+  id: [1;34m1[0m,
+  price_per_day: [1;35m52.97[0m,
+  user_id: [1;34m1[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m05[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m05[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mbeers[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mSint qui repudiandae. Eveniet autem sint. Labore aut aut. Earum voluptate a. Ullam tempore architecto. Ut vitae voluptatem. Quibusdam aut nulla. Cum animi quas. Molestiae et quibusdam. Voluptas illum molestiae. Doloremque esse ea. Debitis tempore iusto. E.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05758398[0m
+  id: [1;34m2[0m,
+  price_per_day: [1;35m58.67[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m08[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m08[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mcocktails[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mVel qui labore. Ratione ea eos. Et molestiae voluptas. Ea a sint. Et nihil voluptates. Nam quidem et. Qui eligendi laborum. Harum illum est. Harum sint doloremque. Voluptatem inventore nihil. Similique et ipsa. Nobis repudiandae soluta. Consequuntur dolor.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc057582d0[0m
+  id: [1;34m3[0m,
+  price_per_day: [1;35m35.38[0m,
+  user_id: [1;34m3[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mcocktails[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mDistinctio expedita laboriosam. Ab consequatur consectetur. Et odio cum. Eius qui suscipit. Fugiat veritatis exercitationem. Aut perspiciatis qui. Autem rerum quia. Sed repudiandae rerum. Illum vel dolor. Veniam labore dolorum. Minus assumenda reiciendis..[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05758208[0m
+  id: [1;34m4[0m,
+  price_per_day: [1;35m31.22[0m,
+  user_id: [1;34m4[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m11[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m11[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mdaikiri[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mOmnis impedit sit. Tempore quo aut. Non perspiciatis illum. Quos et porro. Id ut earum. Quos atque rerum. Aut voluptas aliquid. Nobis consequatur ullam. Alias similique qui. Beatae porro et. Voluptatem dolorem deleniti. Sunt molestias eveniet. Nemo nostru.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05758140[0m
+  id: [1;34m5[0m,
+  price_per_day: [1;35m43.55[0m,
+  user_id: [1;34m5[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m13[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m13[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mbeers[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mError consequatur maiores. Non fuga nesciunt. Velit nihil fuga. Est quis eos. Dolor ut autem. Aperiam sit laboriosam. Animi aut exercitationem. Possimus aut quo. Dolores quia debitis. Iste enim earum. Et temporibus ab. Dolorem voluptates dolorum. Corporis.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05758078[0m
+  id: [1;34m6[0m,
+  price_per_day: [1;35m46.61[0m,
+  user_id: [1;34m6[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m14[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m14[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31msangria[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mMollitia vero consequuntur. Animi modi error. Nemo fuga voluptatibus. Omnis fuga autem. Aut vero voluptas. Vero ducimus minima. Explicabo quasi sit. Non et et. Quam quibusdam quia. Voluptas occaecati eligendi. Sunt ad reiciendis. Ad qui sed. Molestias ven.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05773f08[0m
+  id: [1;34m7[0m,
+  price_per_day: [1;35m79.95[0m,
+  user_id: [1;34m7[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m16[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m16[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mvirgin cocktails[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mQuia quod assumenda. Aliquam eligendi aut. Aliquid nulla doloremque. Nostrum ab ratione. Fuga dolor dolor. Qui natus rerum. Facere dolor veniam. Eaque voluptate rerum. Sequi autem tempore. Officiis ex rem. Laborum est dolore. Velit natus laborum. Ea delec.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05773dc8[0m
+  id: [1;34m8[0m,
+  price_per_day: [1;35m56.53[0m,
+  user_id: [1;34m8[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m18[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m18[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31msangria[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mEst sunt recusandae. Voluptatem voluptatum architecto. Quam ut quia. Aut veniam qui. Aut expedita praesentium. Placeat delectus unde. Dolorem dolorem iste. Unde suscipit quos. Tempore ut sed. Ea sed qui. Ex provident totam. Odio mollitia consequatur. Mole.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05773c60[0m
+  id: [1;34m9[0m,
+  price_per_day: [1;35m73.59[0m,
+  user_id: [1;34m9[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m19[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m19[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mdaikiri[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mSoluta voluptatibus dolores. Et excepturi accusamus. Earum aut unde. Sunt nostrum aspernatur. Culpa et et. Architecto reprehenderit et. Dolorem quae quia. Ducimus quia delectus. Et quidem accusantium. Rerum fugit similique. Consequatur eos repellendus. Si.[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Bartender:0x000055dc05773b98[0m
+  id: [1;34m10[0m,
+  price_per_day: [1;35m71.09[0m,
+  user_id: [1;34m10[0m,
+  created_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m21[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m09[0m:[1;34m02[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  specialty: [[31m[1;31m"[0m[31mmojito[1;31m"[0m[31m[0m],
+  description:
+   [31m[1;31m"[0m[31mEst eos cupiditate. Consequatur fuga ipsa. Qui aut veniam. Officia architecto minima. Eligendi qui repellendus. Dicta voluptas eos. Et aut quam. Et explicabo dolore. Omnis quia sit. Ut quidem reprehenderit. Magni consequuntur sint. Excepturi quasi nisi. E.[1;31m"[0m[31m[0m[32m>[0m]

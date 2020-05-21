@@ -1,6 +1,7 @@
 class BartendersController < ApplicationController
   require "open-uri"
   def index
+
     @bartenders = Bartender.all
     @users = User.all
     @users = User.geocoded
@@ -18,6 +19,28 @@ class BartendersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url('cocktail.png')
       }
+
+
+    if params[:query].present?
+      @bartenders = []
+      sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+      @users.each do |user|
+        @bartenders << Bartender.where(:user_id => user.id)[0]
+      end
+    else
+      @bartenders = Bartender.all
+      @users = User.all
+
+      @markers = @users.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          #image_url: helpers.asset_url('/images/cocktail2.jpeg')
+        }
+      end
+
     end
 
   end
