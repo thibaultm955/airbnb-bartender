@@ -1,3 +1,8 @@
 <h1> Update your Booking </h1>
 
 
+<%= simple_form_for [@bartender, @booking] do|f| %>
+<%= f.input :start_date, as: :date, html5: true %>
+<%= f.input :end_date, as: :date, html5: true %>
+<%= f.submit%>
+<%end%>
