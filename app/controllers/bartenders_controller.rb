@@ -5,7 +5,13 @@ class BartendersController < ApplicationController
     @users = User.all
     @users = User.geocoded
 
-    @markers = @users.map do |user|
+    @bartenders_users = []
+
+    @bartenders.each do |bartender|
+      @bartenders_users << bartender.user 
+    end
+
+    @markers = @bartenders_users.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
