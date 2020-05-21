@@ -1,45 +1,32 @@
 class BartendersController < ApplicationController
   require "open-uri"
   def index
-
-
-    @bartenders = Bartender.all
-    @users = User.all
-    @users = User.geocoded
-
-    @bartenders_users = []
-
-    @bartenders.each do |bartender|
-      @bartenders_users << bartender.user 
-    end
-
-    @markers = @bartenders_users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('cocktail.png')
-      }
-    end
-
     if params[:query].present?
       @bartenders = []
       sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
       @users = User.where(sql_query, query: "%#{params[:query]}%")
-      @users.each do |user|
-        @bartenders << Bartender.where(:user_id => user.id)[0]
+      @users = @users.geocoded
+      @bartenders_users = []
+      @users.each do |user_i|
+        @bartenders << Bartender.where(:user_id => user_i.id)[0]
+        @bartenders_users << Bartender.where(:user_id => user_i.id)[0].user
+      end
+      @markers = @bartenders_users.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('cocktail.png')
+        }
       end
     else
       @bartenders = Bartender.all
       @users = User.all
       @users = User.geocoded
-
       @bartenders_users = []
-
       @bartenders.each do |bartender|
         @bartenders_users << bartender.user 
       end
-
       @markers = @bartenders_users.map do |user|
         {
           lat: user.latitude,
