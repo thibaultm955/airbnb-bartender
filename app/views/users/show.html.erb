@@ -12,7 +12,9 @@
 
 
 
-<% if current_user == @bartender.user %>
+<% if @bartender == "you're not a bartender" %>
+    <%= "you're not still a bartender"%>
+<% else %>
     <h2> My bartender's account</h2>
     <p><%= @bartender.description %></p>
 
@@ -22,7 +24,4 @@
 
     <p><%= @bartender.price_per_day %></p>
     <%= link_to "edit my bartender's account", edit_bartender_path(@bartender) %>
-
-<% else %>
-     <%= "you're not still a bartender"%>
 <% end  %>
