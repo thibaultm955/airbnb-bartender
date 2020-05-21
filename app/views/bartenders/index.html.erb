@@ -1,41 +1,47 @@
-
-
-<!-- <ul>
-    <%@bartenders.each do |bartender|%>
-     <% @user = User.find(bartender.user_id)%>
-    <li> <a href="/bartenders/<%=bartender.id%>"> <%=@user.first_name%> <%=@user.last_name%> </a> - <%=bartender.price_per_day%> € </li>
-    <%end%>
-    </ul>  -->
-
-<div class="container">
 <h1 class="text-center">Browse through our bartenders</h1>
 <br>
 
-  <div class="cards">
-    <%@bartenders.each do |bartender|%>
+<div class="card-container">
 
-    <div class="card-trip">
-        <%if bartender.photo.attached? %>
-            <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
-        <%end%>
-            <div class="card-trip-infos">
-            <div>
-                <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
-                <p> <%= bartender.description %> </p>
-            </div>
-            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
-            <p class="card-trip-rating" >★ 4,5 </p>
-            </div>
 
-    </div>
+
+<div class="col-md-6 col-lg-8 card-grow">
+
+<%@bartenders.each do |bartender|%>
+<div class="card-product">
+  <%if (bartender.photo.attached?) %>
+    <%= cl_image_tag bartender.photo.key, height: 300, width: 400, crop: :fill %>
   <%end%>
 
-  </div>
+  <div class="card-product-infos">
+  <div class="d-flex justify-content-start">
+    <h2><a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a> </h2>
 
+    <%@reviews = bartender.reviews%>
+    <%sum_rating = 0.00%>
+    <%@reviews.each{ |review| sum_rating += review.rating }%>
+    <%@reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length%>
+
+    <p id="star"> ★ <%=@average_rating%> </p>
+  </div>
+    <% bartender.specialty.each do |specialty| %>
+      <p class="d-inline-flex"> <strong> <%= specialty %> </strong> &nbsp; </p>
+    <% end %>
+    <p> <%= bartender.description %> </p>
+    <p> <strong> € <%= bartender.price_per_day %> </strong> </p>
+  </div>
+</div>
+
+<%end%>
 
 </div>
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+<div class="col-md-6 col-lg-4">
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
 </div>
