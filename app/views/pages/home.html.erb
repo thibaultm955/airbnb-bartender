@@ -1,50 +1,56 @@
 
-<div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/2531184/pexels-photo-2531184.jpeg?cs=srgb&dl=alcohol-alcoholisch-drankje-alcoholische-drank-alcoholische-2531184.jpg&fm=jpg);">
 
-<h1 class="text-center">Airbnb Bartender</h1>
-<br>
+  <div class="container">
 
-<h2 class="text-center mb-5"> Bring the summer into your home 🍹  </h2>
+    <h1 class="text-center mb-5">Airbnb Bartender</h1>
 
-<div class="d-inline-flex mb-5">
+    <h2 class="text-center mb-5"> Bring the summer into your home  </h2>
 
-  <div class="mr-3">
-  <%= form_tag bartenders_path, method: :get do %>
-    <%=label_tag :query, "Name"%>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control"
-      %>
-    </div>
-    <div class="mr-3">
-    <%=label_tag :query2, "Location"%>
-      <%= text_field_tag :query2,
-        params[:query2],
-        class: "form-control"
-      %>
-    </div>
-    <div class="mr-3">
-      <%=label_tag :query3, "Start Date"%>
-      <%= date_field_tag :query3,
-        params[:query3],
-        class: "form-control"
-      %>
-    </div>
-    <div class="mr-5">
-      <%=label_tag :query4, "End Date"%>
-      <%= date_field_tag :query4,
-        params[:query4],
-        class: "form-control"
-      %>
-    </div>
-    <div class="ml-5 mt-4">
-      <%= submit_tag "Search", class: "btn-red mt-2" %>
-    </div>
+    <%= form_tag bartenders_path, method: :get do %>
+      <div class="d-inline-flex">
+
+        <div class="mr-3">
+          <%=label_tag :query, "Name"%>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control"
+            %>
+        </div>
+        <div class="mr-3">
+        <%=label_tag :query2, "Location"%>
+          <%= text_field_tag :query2,
+            params[:query2],
+            class: "form-control"
+          %>
+        </div>
+        <div class="mr-3">
+          <%=label_tag :query3, "Start Date"%>
+           <%= date_field_tag :query3,
+            params[:query3],
+            class: "form-control"
+          %>
+        </div>
+        <div class="mr-5">
+          <%=label_tag :query4, "End Date"%>
+           <%= date_field_tag :query4,
+            params[:query4],
+            class: "form-control"
+          %>
+        </div>
+        <div class="ml-5 mt-4">
+          <%= submit_tag "Search", class: "btn-red mt-2" %>
+        </div>
+
+      </div>
+
   <% end %>
 
 </div>
 
-  <br>
+</div>
+
+<div class="container mt-5">
 
   <h2 class="text-center mb-3"> Featured bartenders </h2>
 
@@ -63,8 +69,11 @@
                 <a href="./bartenders/<%=bartender.id%>"> <%=bartender.user.first_name%> <%= bartender.user.last_name %> </a>
                 <p> <%= bartender.description %> </p>
             </div>
-            <h2 class="card-trip-pricing">  <%= bartender.price_per_day %> €</h2>
-            <p class="card-trip-rating" >★ <%=@average_rating%> </p>
+            <div class="d-inline-flex">
+              <h2> €  </h2>
+              <h2 class="card-trip-pricing">  <%= bartender.price_per_day %></h2>
+            </div>
+              <p class="card-trip-rating" >★ <%=@average_rating%> </p>
             </div>
 
     </div>
