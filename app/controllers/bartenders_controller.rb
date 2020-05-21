@@ -4,6 +4,15 @@ class BartendersController < ApplicationController
     @bartenders = Bartender.all
     @users = User.all
 
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('/images/cocktail.png')
+      }
+    end
+
   end
 
   def show
@@ -14,13 +23,6 @@ class BartendersController < ApplicationController
     sum_rating = 0.00
     @reviews.each{ |review| sum_rating += review.rating }
     @reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length
-
-  
-    @markers = 
-      [{
-        lat: @user.latitude,
-        lgn: @user.longitude
-      }]
 
   end
 

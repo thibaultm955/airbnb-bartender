@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @markers = @users.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
       }
     end
 
