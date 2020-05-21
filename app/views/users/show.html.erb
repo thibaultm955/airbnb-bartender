@@ -1,0 +1,12 @@
+<h2> My account</h2>
+
+<%= @user.last_name%>
+<%= @user.first_name %>
+
+<%= @user.address %>
+<%= @user.email%>
+
+<%= link_to "edit my account", edit_user_path(current_user) ,class: "dropdown-item"%>
+
+<!--- <%= link_to "change my logs : mail & password", edit_user_registration_path(current_user) ,class: "dropdown-item"%> --->
+
