@@ -4,7 +4,7 @@
 
   def index
     @users= User.all
-    @users = User.geocoded # returns users with coordinates
+    #@users = User.geocoded # returns users with coordinates
 
     #@markers = @users.map do |user|
       #{

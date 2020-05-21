@@ -2,6 +2,25 @@ class BartendersController < ApplicationController
   require "open-uri"
   def index
 
+    @bartenders = Bartender.all
+    @users = User.all
+    @users = User.geocoded
+
+    @bartenders_users = []
+
+    @bartenders.each do |bartender|
+      @bartenders_users << bartender.user 
+    end
+
+    @markers = @bartenders_users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('cocktail.png')
+      }
+
+
     if params[:query].present?
       @bartenders = []
       sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
@@ -21,6 +40,7 @@ class BartendersController < ApplicationController
           #image_url: helpers.asset_url('/images/cocktail2.jpeg')
         }
       end
+
     end
 
   end
