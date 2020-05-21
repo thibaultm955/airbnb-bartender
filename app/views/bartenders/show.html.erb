@@ -18,7 +18,7 @@
 <br>
 <p> Average <%=@average_rating%> </p>
 <% @reviews.each do |review| %>
-  <li> <%= review.rating%> - <%=review.comment%> </li>
+  <li> <%= review.rating%> - <%=review.comment%> - <%= review.user_id%></li>
 <% end %>
 
 </ul>
