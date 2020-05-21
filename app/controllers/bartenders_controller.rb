@@ -3,13 +3,14 @@ class BartendersController < ApplicationController
   def index
     @bartenders = Bartender.all
     @users = User.all
+    @users = User.geocoded
 
     @markers = @users.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        #image_url: helpers.asset_url('/images/cocktail2.jpeg')
+        image_url: helpers.asset_url('cocktail.png')
       }
     end
 
