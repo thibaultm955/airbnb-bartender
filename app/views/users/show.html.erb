@@ -4,7 +4,9 @@
 <%= @user.first_name %>
 
 <%= @user.address %>
+<%= @user.email%>
 
-<%= link_to "edit my account : name address etc...", edit_user_path(current_user) ,class: "dropdown-item"%>
-<%= link_to "change my logs : mail & password", edit_user_registration_path(current_user) ,class: "dropdown-item"%>
+<%= link_to "edit my account", edit_user_path(current_user) ,class: "dropdown-item"%>
+
+<!--- <%= link_to "change my logs : mail & password", edit_user_registration_path(current_user) ,class: "dropdown-item"%> --->
 
