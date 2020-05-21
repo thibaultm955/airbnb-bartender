@@ -28,6 +28,9 @@
   	redirect_to users_path
   end
 
+  def show
+  end
+
   private
 
   def user_params
