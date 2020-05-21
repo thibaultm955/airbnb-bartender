@@ -10,36 +10,36 @@
 
   <div class="mr-3">
   <%= form_tag bartenders_path, method: :get do %>
-  <%=label_tag :query, "Name"%>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control"
-    %>
-  </div>
-  <div class="mr-3">
-  <%=label_tag :query2, "Location"%>
-    <%= text_field_tag :query2,
-      params[:query2],
-      class: "form-control"
-    %>
-  </div>
-  <div class="mr-3">
-    <%=label_tag :query3, "Start Date"%>
-     <%= date_field_tag :query3,
-      params[:query3],
-      class: "form-control"
-    %>
-  </div>
-  <div class="mr-5">
-    <%=label_tag :query4, "End Date"%>
-     <%= date_field_tag :query4,
-      params[:query4],
-      class: "form-control"
-    %>
-  </div>
-  <div class="ml-5 mt-4">
-    <%= submit_tag "Search", class: "btn-red mt-2" %>
-  </div>
+    <%=label_tag :query, "Name"%>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control"
+      %>
+    </div>
+    <div class="mr-3">
+    <%=label_tag :query2, "Location"%>
+      <%= text_field_tag :query2,
+        params[:query2],
+        class: "form-control"
+      %>
+    </div>
+    <div class="mr-3">
+      <%=label_tag :query3, "Start Date"%>
+      <%= date_field_tag :query3,
+        params[:query3],
+        class: "form-control"
+      %>
+    </div>
+    <div class="mr-5">
+      <%=label_tag :query4, "End Date"%>
+      <%= date_field_tag :query4,
+        params[:query4],
+        class: "form-control"
+      %>
+    </div>
+    <div class="ml-5 mt-4">
+      <%= submit_tag "Search", class: "btn-red mt-2" %>
+    </div>
   <% end %>
 
 </div>

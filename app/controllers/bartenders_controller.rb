@@ -15,6 +15,14 @@ class BartendersController < ApplicationController
       bartenders = search_bartenders(params[:query])
       search_query_date(params[:query3], params[:query4], bartenders)
 
+    elsif params[:query].present? && params[:query2].present? && params[:query3].present?
+      bartenders = search_bartenders(params[:query], params[:query2])
+      search_query_date(params[:query3], "", bartenders)
+
+    elsif params[:query].present? && params[:query2].present? && params[:query4].present?
+      bartenders = search_bartenders(params[:query], params[:query2])
+      search_query_date("",params[:query4], bartenders)
+
     elsif params[:query].present? && params[:query2].present?
       search_query(params[:query], params[:query2])
 
@@ -24,6 +32,14 @@ class BartendersController < ApplicationController
 
     elsif params[:query2].present? && params[:query3].present?
       bartenders = search_bartenders("", params[:query2])
+      search_query_date(params[:query3], "", bartenders)
+
+    elsif params[:query2].present? && params[:query4].present?
+      bartenders = search_bartenders("", params[:query2])
+      search_query_date( "", params[:query4], bartenders)
+
+    elsif params[:query].present? && params[:query3].present?
+      bartenders = search_bartenders(params[:query])
       search_query_date(params[:query3], "", bartenders)
 
     elsif params[:query3].present?
@@ -62,8 +78,8 @@ class BartendersController < ApplicationController
 
   def search_bartenders(query1, query2 = "")
     sql_query = " \
-    first_name ILIKE :query \
-    OR last_name ILIKE :query \
+    (first_name ILIKE :query \
+    OR last_name ILIKE :query \)
     AND address ILIKE :query2\
   "
     @bartenders = []
@@ -79,8 +95,8 @@ class BartendersController < ApplicationController
 
   def search_query(query1, query2 = "")
     sql_query = " \
-    first_name ILIKE :query \
-    OR last_name ILIKE :query \
+    (first_name ILIKE :query \
+    OR last_name ILIKE :query \)
     AND address ILIKE :query2\
   "
     @bartenders = []
