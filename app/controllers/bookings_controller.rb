@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_bartender, only: [:new, :create]
-
+  before_action :authenticate_user!
   def index
     if params[:user_id] == nil
       @bookings = Booking.where(:bartender_id => params[:bartender_id])
