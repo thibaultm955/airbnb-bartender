@@ -2,6 +2,19 @@
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @users= User.all
+    @users = User.geocoded # returns users with coordinates
+
+    #@markers = @users.map do |user|
+      #{
+       # lat: user.latitude,
+       # lng: user.longitude,
+      #}
+    #end
+
+  end
+
   def edit
   end
 

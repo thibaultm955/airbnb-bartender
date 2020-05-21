@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   validates :email, uniqueness: true
+  
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
