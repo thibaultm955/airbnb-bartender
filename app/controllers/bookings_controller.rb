@@ -3,19 +3,22 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
   def index
     if params[:user_id] == nil
-      @bookings = Booking.where(:bartender_id => params[:bartender_id])
+      @bookings = Booking.order('end_date DESC').where(:bartender_id => params[:bartender_id])
+      @bookings_unordered = Booking.order('end_date ASC').where(:bartender_id => params[:bartender_id])
       @user = Bartender.find(params[:bartender_id]).user
     else
-      @bookings = Booking.where(:user_id => params[:user_id])
+      @bookings = Booking.order('end_date DESC').where(:user_id => params[:user_id])
+      @bookings_unordered = Booking.order('end_date ASC').where(:user_id => params[:user_id])
       @user = User.find(params[:user_id])
     end
     respond_to do |format|
       format.html
       format.json { render json: {bookings: @bookings } }
     end
+    
     @sum_cost = 0
     @bookings_sum = []
-    @bookings.each do |booking|
+    @bookings_unordered.each do |booking|
       @number_of_day_booking = (booking.end_date - booking.start_date).to_i + 1
       @cost_booking = booking.bartender.price_per_day * @number_of_day_booking
       @bookings_sum << [booking.end_date, @cost_booking]
