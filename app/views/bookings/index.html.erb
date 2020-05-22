@@ -44,8 +44,10 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Bartender</th>
-        <th>Action</th>
+        
+        <th>Number of days</th>
         <th>Cost Booking</th>
+        <th>Action</th>
       </thead>
 
       <%sum_cost = 0%>
@@ -58,12 +60,13 @@
             <td><%= booking.start_date %></td>
             <td><%= booking.end_date %></td>
             <td><%= booking.bartender.user.first_name%> <%=booking.bartender.user.last_name%></td>
-            <td><%= link_to user_booking_path(@user.id, booking) do %>
+              <td> <%=number_of_day_booking%></td>
+            <td>  <%=number_with_precision(cost_booking, :precision => 2)%> € </td>
+             <td><%= link_to user_booking_path(@user.id, booking) do %>
                <i class="fas fa-eye"></i>
               <% end %>
-              <%= link_to user_bookings_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <%= link_to user_booking_path(@user.id, booking), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fa fa-trash destroy_dose"></i></td>
-            <td> <%=number_of_day_booking%> days * <%=booking.bartender.price_per_day%> € =  <%=cost_booking%> € </td>
             <% end %>
           </tr>
         <% end %>
@@ -74,7 +77,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><%= sum_cost%> €</td>
+            <td><%= number_with_precision(sum_cost, :precision => 2)%> €</td>
           </tr>
         </tfoot>
   </table>
@@ -85,7 +88,7 @@
     <h4 class="alert-heading">Thanks for your booking!</h4>
     <%= value %>
     <hr>
-    <p class="mb-0">Total of your bookings: <%= sum_cost%> € </p>
+    <p class="mb-0">Total of your bookings: <%= number_with_precision(sum_cost, :precision => 2)%> € </p>
     <%= link_to "Continue", bartenders_path %>
     <%= link_to "| Pay", bartenders_path %>
 
@@ -94,9 +97,6 @@
 <% end %>
 
 
-<div class="mb-5">
-  <%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
-</div>
 
 
 </div>
@@ -165,7 +165,9 @@
 <%=getChart.render() %>
 <br/>
 <br/>
-<a href="index">Go Back</a>
+<div class="mb-5">
+  <%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
+</div>
 
 
 </body>
