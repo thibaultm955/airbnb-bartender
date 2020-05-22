@@ -1,3 +1,11 @@
+<head>
+    <title>D3 tutorial</title>
+   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!--<script src="d3.min.js"></script>-->
+</head> 
+
+<body>
+
 <div class="container">
 <h1> My Bookings </h1>
 <!-- <ul>
@@ -61,5 +69,7 @@
 <%= link_to "Back" , root_path, class: "btn btn-dark" %>
 
 </div>
+<%= javascript_pack_tag 'bookings','data-turbolinks-track': 'reload', defer: true %>
 
 
+</body>
