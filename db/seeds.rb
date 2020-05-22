@@ -31,11 +31,30 @@ specialties = ["mojito", "beers", "cocktails", "mojito", "sangria", "daikiri", "
     user_array[:password] << Faker::Internet.password(min_length: 8)
     user_array[:first_name] << Faker::Name.first_name
     user_array[:last_name] << Faker::Name.last_name
-    user_array[:address] << "56, rue Comhaire, Liège"
     bartender_array[:price_per_day] << Faker::Number.decimal(l_digits: 2) #=> 11.88
     bartender_array[:specialty] << [specialties.sample]
-    bartender_array[:description] << Faker::Lorem.paragraph_by_chars #=> "Truffaut stumptown trust fund 8-bit messenger bag portland. Meh kombucha selvage swag biodiesel. Lomo kinfolk jean shorts asymmetrical diy. Wayfarers portland twee stumptown. Wes anderson biodiesel retro 90's pabst. Diy echo 90's mixtape semiotics. Cornho."
 end
+
+user_array[:address] << "56, rue Comhaire, Liège"
+user_array[:address] << "Cantersteen 10, 1000 Bruxelles"
+user_array[:address] << "8-12 Rue Boissy d'Anglas, 75008 Paris"
+user_array[:address] << "20 Rue Hippolyte Flandrin, 69001 Lyon"
+user_array[:address] << "Zeedijk 14, 1012 AX Amsterdam"
+user_array[:address] << "Plaza de Sta. Ana, 14, 28012 Madrid"
+user_array[:address] << "27 Avenue de Port en Dro, 56340 Carnac"
+user_array[:address] << "18 Place Nouvelle Aventure, 59000 Lille"
+user_array[:address] << "Pelgrimstraat 7, 2000 Antwerpen"
+user_array[:address] << "104 Rue du Quesnoy, 59300 Valenciennes"
+bartender_array[:description] << "Make super cocktail, in a funny way, all naked behind your bar for your birthday!"
+bartender_array[:description] << "Great cocktails, only for squirrels, because squirrels are the best. If you're not dressed like a squirrel, please don't book me"
+bartender_array[:description] << "I love jongle with your glasses. it's not my fault if they fall !! "
+bartender_array[:description] << "I could be astronaut, or biologist, but my passion is cocktail! love the colored one, with little unicorns"
+bartender_array[:description] << "My cocktails are all inspired by Snow Queen! a lot of ice, and blue gin. I can sing too and wear a blue skirt"
+bartender_array[:description] << "Cocktail is coming!! King of the bar is here, and cocktails with the fire of the dragons. Poison only for King Geoffrey !"
+bartender_array[:description] << "i can't say there is bad or good cocktails. There is cocktails for different tastes. If you don't like them, quit them!"
+bartender_array[:description] << "2 fingers ? Oh.... you don't want whiskey first? I hope you have the reference. If not, sorry. I'm a bartender with a lot of humor, i can make some funny jokes for your guests"
+bartender_array[:description] << "between two cocktails, i can dance the carioca, and makes swing your guests! I'm the Patrick swayze of the bar! Dirty dirty bartending!! we don't let cocktail in the corner !"
+bartender_array[:description] << " I am master Yoda of the bar! the Force is with me, and i put it in every cocktails. After booking me, you will see jedis everywhere"
 
 i = 0
 while i < 10

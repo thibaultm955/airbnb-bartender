@@ -75,4 +75,4 @@ gem 'pundit'
 
 gem 'pg_search'
 
-gem "d3-rails"
+gem "fusioncharts-rails"

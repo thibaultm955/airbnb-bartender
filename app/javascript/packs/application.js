@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//= require d3.v3
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

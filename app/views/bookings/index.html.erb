@@ -1,13 +1,26 @@
+<html>
+
 <head>
-    <title>D3 tutorial</title>
-   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <!--<script src="d3.min.js"></script>-->
+  <title>Fusioncharts Rails Samples</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- FusionCharts Library -->
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.zune.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.carbon.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.ocean.js"></script>
 </head>
 
 <body>
 
 <div class="container">
-<h1> My Bookings </h1>
+<h1> <%= @bartender_true == "yes" ? "My Reservations" : "My Bookings"%> </h1>
 <!-- <ul>
     <%@bookings.each do |booking|%>
     <%if params[:bartender_id] == nil%>
@@ -30,8 +43,10 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Bartender</th>
-        <th>Action</th>
+        
+        <th>Number of days</th>
         <th>Cost Booking</th>
+        <th>Action</th>
       </thead>
 
       <%sum_cost = 0%>
@@ -44,12 +59,14 @@
             <td><%= booking.start_date %></td>
             <td><%= booking.end_date %></td>
             <td><%= booking.bartender.user.first_name%> <%=booking.bartender.user.last_name%></td>
-            <td><%= link_to edit_user_booking_path(@user.id, booking) do %>
+
+              <td class="text-center"> <%=number_of_day_booking%></td>
+            <td> € <%=number_with_precision(cost_booking, :precision => 2)%> </td>
+             <td><%= link_to edit_user_booking_path(@user.id, booking) do %>
                <i class="fas fa-edit"></i>
               <% end %>
-              <%= link_to user_bookings_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <%= link_to user_booking_path(@user.id, booking), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fa fa-trash"></i></td>
-            <td> <%=number_of_day_booking%> days * <%=booking.bartender.price_per_day%> € =  <%=cost_booking%> € </td>
             <% end %>
           </tr>
         <% end %>
@@ -60,7 +77,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><strong><%= sum_cost%> €</strong></td>
+           <td><strong> € <%= number_with_precision(sum_cost, :precision => 2)%> </strong> </td>
+
           </tr>
         </tfoot>
   </table>
@@ -71,20 +89,84 @@
     <h4 class="alert-heading">Thanks for your booking!</h4>
     <%= value %>
     <hr>
-    <p class="mb-0">Total of your bookings: <%= sum_cost%> € </p>
-    <%= link_to "Continue", user_bookings_path %>
-<!--    <%= link_to "| Pay", bartenders_path %>  -->
+
+    <p class="mb-0">Total of your bookings: <%= number_with_precision(sum_cost, :precision => 2)%> € </p>
+    <%= link_to "Continue", bartenders_path %>
+<!--    <%= link_to "| Pay", bartenders_path %> -->
 
   <% end %>
 <% end %>
 
 
+</div>
+
+<%
+    require 'json'
+    require 'fusioncharts-rails'
+
+
+    def getChart
+        
+        # Chart appearance configuration
+        chartAppearancesConfigObj = Hash.new
+        chartAppearancesConfigObj = { 
+                        "caption" => "Bookings",
+                        "xAxisName" => "Month",
+                        "yAxisName" => "Revenues", 
+                        "numberSuffix" => "€", 
+                        "theme" => "fusion"
+                    }
+        
+        # An array of hash objects which stores data
+        
+        chartDataObj = [
+
+                ]
+
+        @bookings_sum_per_month.each do |key, index|
+          chartDataObj << {key => index}
+        end
+
+        
+        # Chart data template to store data in "Label" & "Value" format
+        labelValueTemplate = "{ \"label\": \"%s\", \"value\": \"%s\" },"
+        
+        # Chart data as JSON string
+        labelValueJSONStr = ""
+
+        chartDataObj.each {|item| 
+            data = labelValueTemplate % [item.keys[0], item[item.keys[0]]]
+            labelValueJSONStr.concat(data)
+        }
+
+        # Removing trailing comma character
+        labelValueJSONStr = labelValueJSONStr.chop
+
+        # Chart JSON data template
+        chartJSONDataTemplate = "{ \"chart\": %s, \"data\": [%s] }"
+
+        # Final Chart JSON data from template
+        chartJSONDataStr = chartJSONDataTemplate % [chartAppearancesConfigObj.to_json, labelValueJSONStr]
+
+        # Chart rendering 
+        chart = Fusioncharts::Chart.new({
+                width: "600",
+                height: "400",
+                type: "column2d",
+                renderAt: "chartContainer",
+                dataSource: chartJSONDataStr
+            })
+
+    end
+%>
+<br>
+<div id="chartContainer" class="text-center"></div>
+<%=getChart.render() %>
+<br/>
+<br/>
 <div class="mb-5">
   <%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
 </div>
-
-</div>
-<%= javascript_pack_tag 'bookings','data-turbolinks-track': 'reload', defer: true %>
 
 
 </body>
