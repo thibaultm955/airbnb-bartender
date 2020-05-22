@@ -54,7 +54,7 @@ class BartendersController < ApplicationController
       search_query(params[:query])
 
     elsif params[:query2].present?
-      search_query("thibault", params[:query2])
+      search_query("", params[:query2])
 
     else
       @bartenders = Bartender.all
