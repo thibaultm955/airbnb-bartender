@@ -66,4 +66,55 @@ while i < 10
     i += 1
 end
 
+review_array = {rating: [], comment: [], user_id: [], bartender_id: []}
 
+review_array[:rating] << 4.5
+review_array[:comment] << "Super good experience"
+review_array[:user_id] << 1
+review_array[:bartender_id] << 2
+review_array[:rating] << 5
+review_array[:comment] << "An experience I could almost remember !"
+review_array[:user_id] << 2
+review_array[:bartender_id] << 1
+review_array[:rating] << 1
+review_array[:comment] << "Poor cocktail maker"
+review_array[:user_id] << 4
+review_array[:bartender_id] << 3
+review_array[:rating] << 2
+review_array[:comment] << "Carrefour quality cocktails"
+review_array[:user_id] << 5
+review_array[:bartender_id] << 4
+review_array[:rating] << 4.5
+review_array[:comment] << "Great Bartender"
+review_array[:user_id] << 6
+review_array[:bartender_id] << 5
+review_array[:rating] << 5
+review_array[:comment] << "One of the best bartender I met"
+review_array[:user_id] << 7
+review_array[:bartender_id] << 6
+review_array[:rating] << 3
+review_array[:comment] << "Average cocktails"
+review_array[:user_id] << 8
+review_array[:bartender_id] << 7
+review_array[:rating] << 3
+review_array[:comment] << "Average cocktails"
+review_array[:user_id] << 8
+review_array[:bartender_id] << 7
+review_array[:rating] << 4
+review_array[:comment] << "Good cocktails"
+review_array[:user_id] << 9
+review_array[:bartender_id] << 8
+review_array[:rating] << 5
+review_array[:comment] << "Best bartender in town !"
+review_array[:user_id] << 10
+review_array[:bartender_id] << 9
+review_array[:rating] << 4.5
+review_array[:comment] << "Great bartender !"
+review_array[:user_id] << 1
+review_array[:bartender_id] << 10
+
+i = 0
+while i < 10
+    review = Review.create!(:rating => review_array[:rating][i], :comment => review_array[:comment][i], :user_id => review_array[:user_id][i], :bartender_id => review_array[:bartender_id][i])
+    i += 1
+end
