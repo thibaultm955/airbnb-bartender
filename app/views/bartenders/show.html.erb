@@ -3,7 +3,6 @@
 <div class="d-inline-flex">
   <div class="image">
     <%= cl_image_tag @bartender.photo.key, height: 300, width: 400, crop: :fill %>
-    <%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
   </div>
     <div class="description">
       <div class="d-flex justify-content-start">
@@ -52,5 +51,4 @@
 <%end%>
 </div>
 
-
-
+<%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
