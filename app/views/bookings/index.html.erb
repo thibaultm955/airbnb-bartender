@@ -21,7 +21,7 @@
 <body>
 
 <div class="container">
-<h1> My Bookings </h1>
+<h1> <%= @bartender_true == "yes" ? "My Reservations" : "My Bookings"%> </h1>
 <!-- <ul>
     <%@bookings.each do |booking|%>
     <%if params[:bartender_id] == nil%>
@@ -60,7 +60,7 @@
             <td><%= booking.start_date %></td>
             <td><%= booking.end_date %></td>
             <td><%= booking.bartender.user.first_name%> <%=booking.bartender.user.last_name%></td>
-              <td> <%=number_of_day_booking%></td>
+              <td class="text-center"> <%=number_of_day_booking%></td>
             <td>  <%=number_with_precision(cost_booking, :precision => 2)%> € </td>
              <td><%= link_to user_booking_path(@user.id, booking) do %>
                <i class="fas fa-eye"></i>
