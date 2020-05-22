@@ -17,7 +17,6 @@
     <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.ocean.js"></script>
 </head>
 
-
 <body>
 
 <div class="container">
@@ -60,24 +59,26 @@
             <td><%= booking.start_date %></td>
             <td><%= booking.end_date %></td>
             <td><%= booking.bartender.user.first_name%> <%=booking.bartender.user.last_name%></td>
+
               <td class="text-center"> <%=number_of_day_booking%></td>
-            <td>  <%=number_with_precision(cost_booking, :precision => 2)%> € </td>
-             <td><%= link_to user_booking_path(@user.id, booking) do %>
-               <i class="fas fa-eye"></i>
+            <td> € <%=number_with_precision(cost_booking, :precision => 2)%> </td>
+             <td><%= link_to edit_user_booking_path(@user.id, booking) do %>
+               <i class="fas fa-edit"></i>
               <% end %>
               <%= link_to user_booking_path(@user.id, booking), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash destroy_dose"></i></td>
+              <i class="fa fa-trash"></i></td>
             <% end %>
           </tr>
         <% end %>
       </tbody>
         <tfoot>
           <tr>
-            <td>Sum</td>
+            <td><strong>Sum</strong></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><%= number_with_precision(sum_cost, :precision => 2)%> €</td>
+           <td><strong> € <%= number_with_precision(sum_cost, :precision => 2)%> </strong> </td>
+
           </tr>
         </tfoot>
   </table>
@@ -88,15 +89,13 @@
     <h4 class="alert-heading">Thanks for your booking!</h4>
     <%= value %>
     <hr>
+
     <p class="mb-0">Total of your bookings: <%= number_with_precision(sum_cost, :precision => 2)%> € </p>
     <%= link_to "Continue", bartenders_path %>
-    <%= link_to "| Pay", bartenders_path %>
-
+<!--    <%= link_to "| Pay", bartenders_path %> -->
 
   <% end %>
 <% end %>
-
-
 
 
 </div>
