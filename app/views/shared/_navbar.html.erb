@@ -29,7 +29,7 @@
            <%= link_to "My bookings", user_bookings_path(current_user), class: "dropdown-item" %>
 
             <%if Bartender.where(:user_id => current_user.id) != []%>
-              <%= link_to "My reservations", bartender_bookings_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My reservations", bartender_bookings_path(Bartender.where(:user_id => current_user.id)[0].id), class: "dropdown-item" %>
             <%end%>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

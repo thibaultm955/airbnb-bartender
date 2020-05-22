@@ -74,3 +74,5 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 
 gem 'pg_search'
+
+gem "d3-rails"
