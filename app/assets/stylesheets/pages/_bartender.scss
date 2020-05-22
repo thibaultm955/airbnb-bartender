@@ -39,6 +39,20 @@
 }
 
 
+.btn-ghost-noborder {
+  color: #4A4A4A;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-noborder:hover {
+  color: #4A4A4A;
+  opacity: 1;
+}
+
+
 #bartender-star {
   margin-top: 0px;
   margin-left: 8px;
@@ -60,4 +74,10 @@
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   margin-bottom: 3rem;
+}
+
+
+.form-small {
+  width: 200px;
+
 }

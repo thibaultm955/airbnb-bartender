@@ -1,14 +1,14 @@
 <div class="container">
 
-  <h1> Please enter date to book your bartender : </h1>
-  <h2 style="color:red"> <%= @incorrect == nil ? "" : "Those dates are already used, please use new one"%> </h2>
-  <p>
-  <%= @bartender.user.last_name %>
-  </p>
+  <h1> Please enter date to book <%= @bartender.user.first_name %> <%= @bartender.user.last_name %> : </h1>
+  <p style="color:red"> <%= @incorrect == nil ? "" : "Those dates are already used, please use new one"%> </p>
 
-  <%= simple_form_for [@bartender, @booking] do|f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.submit%>
-  <%end%>
+  <div class="form-small mb-5 ">
+    <%= simple_form_for [@bartender, @booking] do|f| %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true %>
+      <%= f.submit%>
+    <%end%>
+  </div>
+
 </div>
