@@ -43,7 +43,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Bartender</th>
-        
+
         <th>Number of days</th>
         <th>Cost Booking</th>
         <th>Action</th>
@@ -106,19 +106,19 @@
 
 
     def getChart
-        
+
         # Chart appearance configuration
         chartAppearancesConfigObj = Hash.new
-        chartAppearancesConfigObj = { 
+        chartAppearancesConfigObj = {
                         "caption" => "Bookings",
                         "xAxisName" => "Month",
-                        "yAxisName" => "Revenues", 
-                        "numberSuffix" => "€", 
+                        "yAxisName" => "Revenues",
+                        "numberSuffix" => "€",
                         "theme" => "fusion"
                     }
-        
+
         # An array of hash objects which stores data
-        
+
         chartDataObj = [
 
                 ]
@@ -127,14 +127,14 @@
           chartDataObj << {key => index}
         end
 
-        
+
         # Chart data template to store data in "Label" & "Value" format
         labelValueTemplate = "{ \"label\": \"%s\", \"value\": \"%s\" },"
-        
+
         # Chart data as JSON string
         labelValueJSONStr = ""
 
-        chartDataObj.each {|item| 
+        chartDataObj.each {|item|
             data = labelValueTemplate % [item.keys[0], item[item.keys[0]]]
             labelValueJSONStr.concat(data)
         }
@@ -148,7 +148,7 @@
         # Final Chart JSON data from template
         chartJSONDataStr = chartJSONDataTemplate % [chartAppearancesConfigObj.to_json, labelValueJSONStr]
 
-        # Chart rendering 
+        # Chart rendering
         chart = Fusioncharts::Chart.new({
                 width: "600",
                 height: "400",
@@ -170,3 +170,4 @@
 
 
 </body>
+</html>
