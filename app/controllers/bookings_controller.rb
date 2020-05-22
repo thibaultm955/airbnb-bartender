@@ -13,6 +13,23 @@ class BookingsController < ApplicationController
       format.html
       format.json { render json: {bookings: @bookings } }
     end
+    @sum_cost = 0
+    @bookings_sum = []
+    @bookings.each do |booking|
+      @number_of_day_booking = (booking.end_date - booking.start_date).to_i + 1
+      @cost_booking = booking.bartender.price_per_day * @number_of_day_booking
+      @bookings_sum << [booking.end_date, @cost_booking]
+      @sum_cost += @cost_booking
+      
+    end
+    @bookings_sum_per_month = {}
+    @bookings_sum.each do |booking|
+      if @bookings_sum_per_month[(booking[0].month)] != nil
+        @bookings_sum_per_month[booking[0].month] += booking[1]
+      else
+        @bookings_sum_per_month[booking[0].month] = booking[1]
+      end
+    end
   end
 
   def show
