@@ -1,28 +1,29 @@
 <div class="container">
 
 <div class="d-inline-flex">
+
   <div class="image">
     <%= cl_image_tag @bartender.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
-    <div class="description">
-      <div class="d-flex justify-content-start">
-        <h3> <%= @user.first_name %> <%= @user.last_name%> </h3>
-        <%@reviews = @bartender.reviews%>
-        <%sum_rating = 0.00%>
-        <%@reviews.each{ |review| sum_rating += review.rating }%>
-        <%@reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length%>
-        <p id="bartender-star"> ★ <%=@average_rating%> </p>
-      </div>
-
-      <% @bartender.specialty.each do |specialty| %>
-        <p class="d-inline-flex" id="bartender-specialty"> <%= specialty %> &nbsp; </p>
-      <% end %>
-      <p> <%= @bartender.description %> </p>
-      <p id="bartender-price"> € <%= @bartender.price_per_day %> </p>
-
-      <%= link_to "Book now", new_bartender_booking_path(@bartender), class: "btn-red" %>
+  <div class="description">
+    <div class="d-flex justify-content-start">
+      <h3> <%= @user.first_name %> <%= @user.last_name%> </h3>
+      <%@reviews = @bartender.reviews%>
+      <%sum_rating = 0.00%>
+      <%@reviews.each{ |review| sum_rating += review.rating }%>
+      <%@reviews.length == 0 ? @average_rating = 0.00 : @average_rating = sum_rating / @reviews.length%>
+      <p id="bartender-star"> ★ <%=@average_rating%> </p>
     </div>
+
+    <% @bartender.specialty.each do |specialty| %>
+      <p class="d-inline-flex" id="bartender-specialty"> <%= specialty %> &nbsp; </p>
+    <% end %>
+    <p> <%= @bartender.description %> </p>
+    <p id="bartender-price"> € <%= @bartender.price_per_day %> </p>
+
+    <%= link_to "Book now", new_bartender_booking_path(@bartender), class: "btn-red" %>
   </div>
+</div>
 
 <hr>
 
