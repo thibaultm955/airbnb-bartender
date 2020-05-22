@@ -38,7 +38,7 @@
   <div class="card-header">
     <div class="d-flex justify-content-start">
       <p> <%= review.user.first_name%> <%= review.user.last_name%> </p>
-      <p id="bartender-star"> ★ <%=@average_rating%> </p>
+      <p id="bartender-star"> ★ <%=review.rating%> </p>
     </div>
   </div>
 
@@ -53,4 +53,5 @@
 </div>
   
 <%= link_to "< Back to Home" , root_path, class: "btn-ghost-noborder" %>
-
+<br>
+<br>

@@ -84,6 +84,7 @@
   </table>
 </div>
 <% flash.each do |key, value| %>
+<%if key != "notice"%>
   <%= content_tag :div, class: "alert alert-success" do %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="alert-heading">Thanks for your booking!</h4>
@@ -93,7 +94,7 @@
     <p class="mb-0">Total of your bookings: <%= number_with_precision(sum_cost, :precision => 2)%> € </p>
     <%= link_to "Continue", bartenders_path %>
 <!--    <%= link_to "| Pay", bartenders_path %> -->
-
+<% end %>
   <% end %>
 <% end %>
 
