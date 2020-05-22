@@ -65,7 +65,19 @@
         </tfoot>
   </table>
 </div>
-<%= info %>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, class: "alert alert-success" do %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="alert-heading">Thanks for your booking!</h4>
+    <%= value %>
+    <hr>
+    <p class="mb-0">Total of your bookings: <%= sum_cost%> € </p>
+    <%= link_to "Continue", bartenders_path %>
+    <%= link_to "| Pay", bartenders_path %>
+
+  <% end %>
+<% end %>
+
 
 <%= link_to "Back" , root_path, class: "btn btn-dark" %>
 

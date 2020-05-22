@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     @booking = @bartender.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to user_bookings_path(current_user), info: "thanks for your booking"
+      redirect_to user_bookings_path(current_user), info: "your Bartender : #{@bartender.user.last_name}, from #{@booking.start_date} to #{@booking.end_date}."
     else 
       render :new
     end
