@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
       @bookings = Booking.order('end_date DESC').where(:bartender_id => params[:bartender_id])
       @bookings_unordered = Booking.order('end_date ASC').where(:bartender_id => params[:bartender_id])
       @user = Bartender.find(params[:bartender_id]).user
+      @bartender_true = "yes"
     else
       @bookings = Booking.order('end_date DESC').where(:user_id => params[:user_id])
       @bookings_unordered = Booking.order('end_date ASC').where(:user_id => params[:user_id])
@@ -88,7 +89,7 @@ class BookingsController < ApplicationController
 
   end
 
-  def destroy
+  def destroy 
     @booking = Booking.find(params[:id])
     @booking.delete
     redirect_to user_bookings_path(current_user)
